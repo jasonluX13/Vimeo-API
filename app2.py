@@ -12,7 +12,11 @@ def tag(tag=""):
         url = url%(tag)
         request = urllib2.urlopen(url)
         resultstring = request.read()
+        result = json.loads(resultstring)
+        print result[0]["title"]
+        
         return resultstring
+    
     except (urllib2.URLError):
         return('Sorry, that is not a valid channel.')
         
