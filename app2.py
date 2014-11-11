@@ -13,9 +13,21 @@ def tag(tag=""):
         request = urllib2.urlopen(url)
         resultstring = request.read()
         result = json.loads(resultstring)
-        return result[0]["title"]
         
-        return resultstring
+        titles = []
+        url = []
+        thumbnails = []
+        i = 0
+        while i < len(result):
+            titles.append( result[i]["title"])
+            url.append(result[i]["url"])
+            thumbnails.append(result[i]["thumbnail_medium"])
+            i=i+1
+        print (titles)
+        return render_template("search.html",
+                                titles = titles,
+                                url = url,
+                                thumbnails = thumbnails) 
     
     except (urllib2.URLError):
         return('Sorry, that is not a valid channel.')
