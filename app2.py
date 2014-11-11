@@ -13,7 +13,7 @@ def tag(tag=""):
         request = urllib2.urlopen(url)
         resultstring = request.read()
         result = json.loads(resultstring)
-        print result[0]["title"]
+        return result[0]["title"]
         
         return resultstring
     
