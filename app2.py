@@ -27,7 +27,8 @@ def tag(tag=""):
         return render_template("search.html",
                                 titles = titles,
                                 url = url,
-                                thumbnails = thumbnails) 
+                                thumbnails = thumbnails,
+                                all = result) 
     
     except (urllib2.URLError):
         return('Sorry, that is not a valid channel.')
