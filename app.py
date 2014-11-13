@@ -1,5 +1,6 @@
 from flask import Flask, request, url_for, redirect, render_template
 import json, urllib.request, urllib.error, urllib.parse
+
 app=Flask(__name__)
 
 @app.route("/")
@@ -13,6 +14,7 @@ def tag(tag=""):
         return render_template("index.html")
     else:
         tag = request.form["channel"]
+        
         try:
             url="http://vimeo.com/api/v2/channel/%s/videos.json"
             url = url%(tag)
